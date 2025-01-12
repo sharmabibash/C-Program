@@ -146,5 +146,30 @@ int main()
     scanf("%d", &sci);
     total = eng + nep + math + sci;
     per = (float)total / 4;
-    printf("%f", per);
+    printf("Total : %d", total);
+    printf("\nPercentage : %f", per);
+    if (per < 40)
+    {
+        printf("\nFailed");
+    }
+    else
+    {
+        printf("\nPassed");
+    }
 }
+
+// Take integer number from user and convert it into float.
+/*#include <stdio.h>
+int main()
+{
+    int num;
+    float usha;
+    printf("enter number ");
+    scanf("%d", &num);
+    usha = (float)num;
+    printf("%f", usha);
+
+    getchar();
+    getchar();
+}
+*/
