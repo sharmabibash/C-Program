@@ -102,7 +102,7 @@ int main()
     }
 }*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     int i, j, k, n = 4;
@@ -118,4 +118,4 @@ int main()
         }
         printf("\n");
     }
-}
+}*/
