@@ -21,7 +21,7 @@ default:
 
 // Wap in c to display name of 7 days in a week. using switch statement
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     int n;
@@ -53,4 +53,42 @@ int main()
     default:
         printf("Invalid");
     }
+}*/
+
+// only fo usha
+/*#include<stdio.h>
+int main(){
+int n;
+printf("enter respective number of days to display its name:");
+scanf("%d",&n);
+switch(n)
+{
+         case 1:
+               printf("sunday");
+               break;
+               case 2:
+                    printf("monday");
+                    default:
+                            printf("invalid");
+                            }
+                            getchar();
+                            getchar();
 }
+*/
+
+// go to statement :
+// WAP to add two numbers which is enterd by user.
+/*#include <stdio.h>
+int main()
+{
+    int a, b, add;
+    printf("Enter first number : ");
+    scanf("%d", &a);
+    printf("Enter the second number : ");
+    scanf("%d", &b);
+    goto usha;
+
+usha:
+    add = a + b;
+    printf("%d is sum ", add);
+}*/
