@@ -131,7 +131,7 @@ int main()
 */
 
 // WAP in C Take marks of 4 subject then find its total marks, percentage, if percentage is greater than 40 then display Passed in remarks , else failed.
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     int eng, nep, math, sci, total;
@@ -156,7 +156,7 @@ int main()
     {
         printf("\nPassed");
     }
-}
+}*/
 
 // Take integer number from user and convert it into float.
 /*#include <stdio.h>

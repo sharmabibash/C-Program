@@ -33,7 +33,7 @@ int main()
 // int --> %d
 // char --> %c for single character or %s for multiple character
 // float --> %f for floating numbers or decimal values
-// double ---> %ld for double value. -8 bytes
+// double ---> %ld for double value. 8 bytes
 */
 
 // Area of cirlce
