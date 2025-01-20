@@ -1,6 +1,5 @@
 // switch(char='U')== ON
 // it is also decision making statement.
-
 // syntax of switch statement
 /*switch (expression)
 {
