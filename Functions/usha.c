@@ -82,4 +82,4 @@ int main()
     scanf("%d", &b);
     c = sum(a, b);
     printf("%d is add", c);
-}
+}*/
