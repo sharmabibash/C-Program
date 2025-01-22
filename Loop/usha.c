@@ -3,8 +3,10 @@
 // loop
 // do while
 // while loop
-// for loop
-
+/* for loop   for(i=0;i<n;i++){
+prinf("Usha");
+}
+*/
 /*
 Four important points of looping.
 1. Initialization  int i = 0;

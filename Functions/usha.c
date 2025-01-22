@@ -1,0 +1,2 @@
+// the function which is already define on compiler it is called primary function or in-built function.
+// The function which is defined by user for specific task is called user-define function or secondary function.

@@ -32,7 +32,7 @@ int main()
 
 // WAP in c to store n number in an array and sorting it in ascending order and descending order.
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
     int a[100], j, temp, n, i;
@@ -77,4 +77,62 @@ int main()
     {
         printf("%d\n", a[i]);
     }
-}
+}*/
+
+// 2-D Array
+
+/*
+2-D array
+a[10][20];
+*/
+
+/*WAP in c to store 2-D array and add two matrices*/
+/*#include <stdio.h>
+
+int main()
+{
+    int matA[20][20], matB[20][20], sum[20][20], i, j, row, col;
+
+    printf("Enter row for matrix: ");
+    scanf("%d", &row);
+    printf("Enter column for matrix: ");
+    scanf("%d", &col);
+
+    printf("Insert data for Matrix A:\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            scanf("%d", &matA[i][j]);
+        }
+    }
+
+    printf("Insert data for Matrix B:\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            scanf("%d", &matB[i][j]);
+        }
+    }
+
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            sum[i][j] = matA[i][j] + matB[i][j];
+        }
+    }
+
+    printf("Sum of Matrix A and Matrix B:\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}*/
