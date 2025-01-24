@@ -112,7 +112,6 @@ b. Changes made inside the function affect the original function.
 */
 
 // Declaration of pointer ----> int *x, int *y, char *a[10] etc
-
 /*#include <stdio.h>
 void modifyValue(int *x)
 {
