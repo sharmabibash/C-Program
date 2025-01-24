@@ -53,3 +53,22 @@ int main()
     *ptrSum = *x + *y;
     printf("Sum of %d and %d is : %d\n", *x, *y, *ptrSum);
 }*/
+
+/*#include <stdio.h>
+int main()
+{
+    int a, b, mul;
+    int *x, *y, *ptrmul;
+    printf("enter first number :");
+    scanf("%d", &a);
+    printf("enter second number :");
+    scanf("%d", &b);
+    x = &a;
+    y = &b;
+    ptrmul = &mul;
+    *ptrmul = *x * *y;
+    printf("multiply of %d and %d is:%d\n", *x, *y, *ptrmul);
+    getchar();
+    getchar();
+}
+*/

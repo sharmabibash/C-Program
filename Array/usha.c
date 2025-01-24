@@ -136,3 +136,30 @@ int main()
 
     return 0;
 }*/
+
+/*Q.3.b Wap to display sum of each row of a 3*3 matrix */
+/*#include <stdio.h>
+int main()
+{
+    int matrix[100][100], row = 3, col = 3, i, j;
+    int rowSum = 0;
+    printf("Enter elements for the 3x3 matrix :\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            printf("Enter element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    printf("\nSum of each row:\n");
+    for (i = 0; i < row; i++)
+    {
+
+        for (j = 0; j < col; j++)
+        {
+            rowSum = rowSum + matrix[i][j];
+        }
+        printf("Sum of row %d : %d\n", i + 1, rowSum);
+    }
+}*/
