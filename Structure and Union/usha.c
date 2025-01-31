@@ -33,7 +33,7 @@ int main()
 /*2. Create a structure named student that has name, roll,
 marks and remarks as members. Write a program using structure to read
 and display the records of n students.*/
-#include <stdio.h>
+/*#include <stdio.h>
 
 struct student
 {
@@ -85,4 +85,55 @@ int main()
     }
 
     return 0;
-}
+}*/
+
+/* example of structure - A*/
+/*#include <stdio.h>
+struct student
+{
+    int roll;
+    char name[20];
+    float marks;
+};
+int main()
+{
+    struct student u = {2, "usha", 95.0};
+    printf("Size of u = %d bytes\n", sizeof(u));
+    // All members
+    printf("Name : %s\n", u.name);
+    printf("Roll : %d\n", u.roll);
+    printf("Marks : %f\n", u.marks);
+    return 0;
+}*/
+
+/*example of union - B*/
+/*#include <stdio.h>
+#include <string.h>
+union student
+{
+    int roll;
+    float marks;
+    char name[20];
+};
+int main()
+{
+    union student u;
+    printf("Size of u = %d bytes \n", sizeof(u));
+    u.roll = 2;
+    printf("Roll : %d\n", u.roll);
+    u.marks = 95.0;
+    printf("Marks : %f\n", u.marks);
+    strcpy(u.name, "usha");
+    printf("Name : %s\n", u.name);
+
+    // all not at a time it is not for union
+    printf("Roll : %d\n", u.roll);
+    printf("Marks : %f\n", u.marks);
+    printf("Name : %s\n", u.name);
+}*/
+
+/*Summary
+a. in structure all the members are accessed at a time.
+b. in union all the members are not accessable at a time.
+
+*/
