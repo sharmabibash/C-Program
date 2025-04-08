@@ -483,3 +483,189 @@ void record(struct IOE *ioe, int n) {
     }
 }
 */
+
+// sort an array using pointer
+
+/*#include<stdio.h>
+void sort(int *arr, int n){
+    int temp;
+    int i,j;
+    for(i=0;i<n;i++){
+        for(j=0;j<n-i-1;j++){
+            if(*(arr+j)>*(arr+j+1)){
+                temp=*(arr+j);
+                *(arr+j)=*(arr+j+1);
+                *(arr+j+1)=temp;
+            }
+        }
+    }
+}
+
+int main(){
+    // int arr[];
+    int n,i;
+    printf("Enter number : ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Start inserting data \n");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    printf("Sorted in asc \n");
+    sort(arr,n);
+    for(i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+
+}*/
+
+// swapping two variables using pointer.
+
+/*#include<stdio.h>
+int swap(int *a, int *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+int main(){
+int a,b;
+printf("Enter first num : ");
+scanf("%d",&a);
+printf("Enter first sec : ");
+scanf("%d",&b);
+printf("Before swap \n");
+printf("a=%d | b=%d",a,b);
+
+printf("\nAfter swap\n");
+swap(&a,&b);
+printf("a=%d | b=%d",a,b);
+
+}*/
+
+
+/*
+WAP in c to create a structure named BOOK with its member Name and Price. input 10 records of book. create a function named maxPrice() which displays the record with the maximum price. the entire structure to the function is passed from main.
+*/
+/*#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct BOOK {
+    char name[20];
+    int price;
+};
+
+void maxPrice(struct BOOK *b, int n) {
+    struct BOOK temp;
+    int i, j;
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - i - 1; j++) {
+            if(b[j].price < b[j + 1].price) {
+                temp = b[j];
+                b[j] = b[j + 1];
+                b[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int n;
+    int i;
+    
+    printf("Enter how many records do you want to store: ");
+    scanf("%d", &n);
+    
+    struct BOOK b[n];
+
+    getchar();
+
+    printf("Enter records:\n");
+    for(i = 0; i < n; i++) {
+        printf("Enter book name: ");
+        scanf("%[^\n]", b[i].name);
+        getchar();
+        
+        printf("Enter book price: ");
+        scanf("%d", &b[i].price);
+
+        getchar();
+    }
+
+    printf("\nData displayed by max price:\n");
+    maxPrice(b, n);
+    
+    for(i = 0; i < n; i++) {
+        printf("\nName: %s", b[i].name);
+        printf("\nPrice: %d\n", b[i].price);
+    }
+
+    return 0;
+}
+*/
+
+/*
+Write a program in c that creates a structure name VEHICLE with its member year, brandName. Read n number of vehicle information and write it to a file named vehicle.dat
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct VEHICLE {
+    int year;
+    char brandName[20];
+};
+
+int main(){
+    // struct VEHICLE v[n];
+    int n;
+    printf("Enter number of records : ");
+    scanf("%d",&n);
+    struct VEHICLE v[n];
+
+    getchar();
+
+    FILE *fp;
+    fp=fopen("vehicle.dat","wb");
+
+    if(fp==NULL){
+        printf("Unable to open");
+        return 1;
+    }
+    for(int i = 0; i < n; i++) {
+        printf("Enter vehicle %d information:\n", i + 1);
+        printf("Enter year: ");
+        scanf("%d", &v[i].year);
+        getchar(); 
+
+        printf("Enter brand name: ");
+        scanf("%[^\n]", v[i].brandName);
+        getchar();
+
+        fwrite(&v[i],sizeof(struct VEHICLE),1,fp);
+    }
+    fclose(fp);
+    printf("Records has been saved !");
+
+    struct VEHICLE readV[n];
+
+    fp = fopen("vehicle.dat", "rb"); // open for reading in binary
+    if (fp == NULL) {
+        printf("Unable to open file for reading\n");
+        return 1;
+    }
+
+    fread(readV, sizeof(struct VEHICLE), n, fp);
+    fclose(fp);
+
+    printf("\nRecords from file:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Vehicle %d:\n", i + 1);
+        printf("  Year: %d\n", readV[i].year);
+        printf("  Brand: %s\n", readV[i].brandName);
+    }
+
+    return 0;
+}
+
