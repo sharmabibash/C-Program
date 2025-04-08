@@ -205,7 +205,7 @@ int main()
     nthLarge_nthsmall(a,n);
     return 0;
 }
-    
+
 
 
 void inputFunction(int a[], int *n)
@@ -408,7 +408,7 @@ int main() {
     int n;
     printf("Enter the number: ");
     scanf("%d", &n);
-    
+
     int reversed = reverse(n);
     printf("Reversed number is: %d\n", reversed);
 
@@ -423,7 +423,7 @@ int main() {
     } else {
         printf("Armstrong: No\n");
     }
-    
+
     return 0;
 }
 */
@@ -442,29 +442,29 @@ struct IOE {
 void record(struct IOE *ioe, int n);
 
 int main() {
-    struct IOE ioe[5];  
-    int n = 5;           
+    struct IOE ioe[5];
+    int n = 5;
     int i;
-    
+
     printf("Enter details for 5 campuses:\n");
 
     for(i = 0; i < n; i++) {
         printf("\nCampus %d:\n", i+1);
         printf("Enter name: ");
         scanf(" %[^\n]", ioe[i].name);
-        
+
         printf("Enter Address: ");
         scanf(" %[^\n]", ioe[i].address);
-        
+
         printf("Enter Established Year: ");
         scanf("%d", &ioe[i].estd);
-        
+
         printf("Total Students: ");
         scanf("%d", &ioe[i].total_students);
     }
 
     printf("\nCampuses with more than 500 students:\n");
-    record(ioe, n);  
+    record(ioe, n);
 
     return 0;
 }
@@ -543,7 +543,6 @@ printf("a=%d | b=%d",a,b);
 
 }*/
 
-
 /*
 WAP in c to create a structure named BOOK with its member Name and Price. input 10 records of book. create a function named maxPrice() which displays the record with the maximum price. the entire structure to the function is passed from main.
 */
@@ -573,10 +572,10 @@ void maxPrice(struct BOOK *b, int n) {
 int main() {
     int n;
     int i;
-    
+
     printf("Enter how many records do you want to store: ");
     scanf("%d", &n);
-    
+
     struct BOOK b[n];
 
     getchar();
@@ -586,7 +585,7 @@ int main() {
         printf("Enter book name: ");
         scanf("%[^\n]", b[i].name);
         getchar();
-        
+
         printf("Enter book price: ");
         scanf("%d", &b[i].price);
 
@@ -595,7 +594,7 @@ int main() {
 
     printf("\nData displayed by max price:\n");
     maxPrice(b, n);
-    
+
     for(i = 0; i < n; i++) {
         printf("\nName: %s", b[i].name);
         printf("\nPrice: %d\n", b[i].price);
@@ -609,7 +608,7 @@ int main() {
 Write a program in c that creates a structure name VEHICLE with its member year, brandName. Read n number of vehicle information and write it to a file named vehicle.dat
 */
 
-#include<stdio.h>
+/*#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 struct VEHICLE {
@@ -637,7 +636,7 @@ int main(){
         printf("Enter vehicle %d information:\n", i + 1);
         printf("Enter year: ");
         scanf("%d", &v[i].year);
-        getchar(); 
+        getchar();
 
         printf("Enter brand name: ");
         scanf("%[^\n]", v[i].brandName);
@@ -668,4 +667,59 @@ int main(){
 
     return 0;
 }
+*/
 
+/*
+create a structure in C to store the name of a batsman, runs scored and number of times the batsman is dismissed. in the program, read the data of five players and display the batting average of the player whose name is entered by the user. batting average is given by total_runs/total_dismissals.
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+struct players
+{
+    char name[20];
+    int runs;
+    int dismissed;
+    float avg;
+};
+int main()
+{
+    int n = 2;
+    int i;
+    char search[20];
+    int found = 0;
+    struct players p[n];
+    // getchar();
+    printf("Insert record\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("Name : ");
+        scanf("%[^\n]", p[i].name);
+        getchar();
+        printf("Total runs : ");
+        scanf("%d", &p[i].runs);
+        getchar();
+        printf("Total dismissal : ");
+        scanf("%d", &p[i].dismissed);
+        getchar();
+        p[i].avg = (float)p[i].runs / p[i].dismissed;
+    }
+    printf("\nEnter the name of the player to find the batting average: ");
+    scanf(" %[^\n]", search);
+
+    for(i=0;i<n;i++){
+    if (strcmp(p[i].name, search) == 0)
+    {
+        printf("Batting average of %s is %.2f\n", p[i].name, p[i].avg);
+        found = 1;
+        break;
+    }
+}
+
+if (!found) {
+    printf("Player not found.\n");
+}
+
+return 0;
+}
