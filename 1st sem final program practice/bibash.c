@@ -366,28 +366,120 @@ int main(){
 
 // Write a c program that reverse a given integer number . The number should be passed from main function processed in userdefined function and then display back in main function.
 
-#include<stdio.h>
-int reverse(int n){
-    int rem,rev=0;
-    while(n!=0){
-        rem=n%10;
-        rev=rev*10+rem;
-        n=n/10;
+/*#include <stdio.h>
+
+int reverse(int n) {
+    int rem, rev = 0;
+    while(n != 0) {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        n = n / 10;
     }
     return rev;
-
 }
-int main(){
-    int n;
-    printf("Enter the number do you want to reverse : ");
-    scanf("%d",&n);
-    int num=reverse(n);
-    
-    printf("Reversed number is : %d",num);
 
-    if(num==n){
-        printf("\nPalindrome : %d",num);
-    }else{
-        printf("\nNot plaindrome : %d ",num);
+int Armstrong(int n) {
+    int original = n;
+    int sum = 0;
+    int digits = 0;
+    int temp = n;
+
+    while(temp != 0) {
+        temp = temp / 10;
+        digits++;
+    }
+
+    temp = original;
+    while(temp != 0) {
+        int rem = temp % 10;
+        int power = 1;
+        // Manually calculate rem^digits
+        for(int i = 0; i < digits; i++) {
+            power *= rem;
+        }
+        sum += power;
+        temp = temp / 10;
+    }
+
+    return (original == sum);
+}
+
+int main() {
+    int n;
+    printf("Enter the number: ");
+    scanf("%d", &n);
+    
+    int reversed = reverse(n);
+    printf("Reversed number is: %d\n", reversed);
+
+    if(reversed == n) {
+        printf("Palindrome: Yes\n");
+    } else {
+        printf("Palindrome: No\n");
+    }
+
+    if(Armstrong(n)) {
+        printf("Armstrong: Yes\n");
+    } else {
+        printf("Armstrong: No\n");
+    }
+    
+    return 0;
+}
+*/
+
+/*
+Write a program to read and store campus details such as name,address,established year, number of students in a structure called IOE. Input data for 5 campuses. pass the structure variable to a function and print the name and established year of the campus which has more than 500 students.
+*/
+/*#include <stdio.h>
+struct IOE {
+    char name[20];
+    char address[20];
+    int estd;
+    int total_students;
+};
+
+void record(struct IOE *ioe, int n);
+
+int main() {
+    struct IOE ioe[5];  
+    int n = 5;           
+    int i;
+    
+    printf("Enter details for 5 campuses:\n");
+
+    for(i = 0; i < n; i++) {
+        printf("\nCampus %d:\n", i+1);
+        printf("Enter name: ");
+        scanf(" %[^\n]", ioe[i].name);
+        
+        printf("Enter Address: ");
+        scanf(" %[^\n]", ioe[i].address);
+        
+        printf("Enter Established Year: ");
+        scanf("%d", &ioe[i].estd);
+        
+        printf("Total Students: ");
+        scanf("%d", &ioe[i].total_students);
+    }
+
+    printf("\nCampuses with more than 500 students:\n");
+    record(ioe, n);  
+
+    return 0;
+}
+
+void record(struct IOE *ioe, int n) {
+    int found = 0;
+    for(int i = 0; i < n; i++) {
+        if(ioe[i].total_students > 500) {
+            printf("Name: %s\n", ioe[i].name);
+            printf("Established Year: %d\n\n", ioe[i].estd);
+            found = 1;
+        }
+    }
+    if(!found) {
+        printf("No campuses found with more than 500 students.\n");
     }
 }
+*/
