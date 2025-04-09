@@ -917,7 +917,7 @@ int main() {
 }*/
 
 // WAP in c to copy the contents of one file to another.
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 
 int main() {
@@ -937,14 +937,14 @@ int main() {
         }
 
         printf("Enter some text to write to the source file: ");
-        getchar(); // To consume the newline character left by scanf
+        getchar(); 
         char text[100];
         fgets(text, 100, stdin);
         fprintf(sf, "%s", text);
         printf("Sample content written to %s\n", source);
         fclose(sf);
 
-        // Re-open source file for reading after writing to it
+        
         sf = fopen(source, "rb");
         if (sf == NULL) {
             printf("Unable to open source file for reading.\n");
@@ -962,18 +962,18 @@ int main() {
         exit(1);
     }
 
-    // Copy content from source to destination
+    
     while ((ch = fgetc(sf)) != EOF) {
         fputc(ch, df);
     }
 
     printf("File copied successfully.\n");
 
-    // Close both files after copying
+    
     fclose(sf);
     fclose(df);
 
-    // Reopen source file and display content
+    
     sf = fopen(source, "rb");
     if (sf == NULL) {
         printf("Unable to open source file for reading.\n");
@@ -985,7 +985,7 @@ int main() {
     }
     fclose(sf);
 
-    // Reopen destination file and display content
+   
     df = fopen(dest, "rb");
     if (df == NULL) {
         printf("Unable to open destination file for reading.\n");
@@ -998,4 +998,113 @@ int main() {
     fclose(df);
 
     return 0;
+}*/
+
+// Reverse and check plaindrome of string without string handling function using user define function.
+
+/*#include <stdio.h>
+
+int length(char str[]) {
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    return length;
 }
+
+int isPalindrome(char str[]) {
+    int n = length(str);
+    int i;
+    for (i = 0; i < n / 2; i++) {
+        if (str[i] != str[n - i - 1]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int main() {
+    char str[100];
+    printf("Enter any string to check palindrome or not: ");
+    scanf("%s", str);
+
+    if (isPalindrome(str)) {
+        printf("%s is palindrome\n", str);
+    } else {
+        printf("%s is not palindrome\n", str);
+    }
+
+    return 0;
+}
+*/
+
+
+/*Prime or composite*/
+
+/*#include <stdio.h>
+
+int main() {
+    int num, i, isPrime = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num <= 1) {
+        printf("%d is neither prime nor composite.\n", num);
+        return 0;
+    }
+
+    for (i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+            isPrime = 0;
+            break;
+        }
+    }
+
+    if (isPrime) {
+        printf("%d is a prime number.\n", num);
+    } else {
+        printf("%d is a composite number.\n", num);
+    }
+
+    return 0;
+}
+*/
+
+// Prime number betwen ranges
+
+/*#include <stdio.h>
+
+int main() {
+    int start, end, i, j, isPrime;
+
+    printf("Enter the start of the range: ");
+    scanf("%d", &start);
+    
+    printf("Enter the end of the range: ");
+    scanf("%d", &end);
+
+    printf("Prime numbers between %d and %d are:\n", start, end);
+
+    for (i = start; i <= end; i++) {
+        if (i < 2)
+            continue;
+
+        isPrime = 1;
+
+        for (j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            printf("%d ", i);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+*/
