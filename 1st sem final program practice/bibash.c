@@ -1108,3 +1108,63 @@ int main() {
     return 0;
 }
 */
+
+/*Write a program to read any string and write it to a file. Read the contents from the file and
+ separate the uppercase and lowercase letters into two different files*/
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    FILE *file, *upperFile, *lowerFile;
+    char str[100];
+    char ch;
+
+    // Step 1: Read a string from the user and write to a file
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  // Read input including spaces
+
+    file = fopen("input.txt", "w");  // Open file for writing
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return 1;
+    }
+    fputs(str, file);  // Write the string to the file
+    fclose(file);  // Close the file
+
+    // Step 2: Read from the file and separate uppercase and lowercase letters
+    file = fopen("input.txt", "r");  // Open file for reading
+    if (file == NULL) {
+        printf("Error opening file for reading.\n");
+        return 1;
+    }
+
+    upperFile = fopen("uppercase.txt", "w");  // File for uppercase letters
+    if (upperFile == NULL) {
+        printf("Error opening file for uppercase letters.\n");
+        return 1;
+    }
+
+    lowerFile = fopen("lowercase.txt", "w");  // File for lowercase letters
+    if (lowerFile == NULL) {
+        printf("Error opening file for lowercase letters.\n");
+        return 1;
+    }
+
+    // Step 3: Process each character in the file
+    while ((ch = fgetc(file)) != EOF) {
+        if (isupper(ch)) {
+            fputc(ch, upperFile);  // Write to uppercase file
+        } else if (islower(ch)) {
+            fputc(ch, lowerFile);  // Write to lowercase file
+        }
+    }
+
+    // Step 4: Close all files
+    fclose(file);
+    fclose(upperFile);
+    fclose(lowerFile);
+
+    printf("Uppercase and lowercase letters have been written to separate files.\n");
+
+    return 0;
+}
