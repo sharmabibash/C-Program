@@ -673,7 +673,7 @@ int main(){
 create a structure in C to store the name of a batsman, runs scored and number of times the batsman is dismissed. in the program, read the data of five players and display the batting average of the player whose name is entered by the user. batting average is given by total_runs/total_dismissals.
 */
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 struct players
@@ -722,4 +722,280 @@ if (!found) {
 }
 
 return 0;
+}*/
+
+// wap in c to find largest and smallest element in an 1D array.
+
+/*#include <stdio.h>
+void large_small(int a[], int n, int *l, int *s)
+{
+    int i;
+    *l = a[0];
+    *s = a[0];
+    for (i = 0; i < n; i++)
+    {
+        if (a[i] > *l)
+        {
+            *l = a[i];
+        }
+        if (a[i] < *s)
+        {
+            *s = a[i];
+        }
+    }
+}
+int main()
+{
+    int a[100], i, n, l, s;
+    printf("enter how many number : ");
+    scanf("%d", &n);
+    printf("insert data\n");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    large_small(a, n, &l, &s);
+    printf("largest : %d\n", l);
+    printf("smallest : %d", s);
+}*/
+
+/*
+WAP in c to display all the character between the given ranges
+*/
+/*#include<stdio.h>
+int main(){
+    char start,end;
+    char ch;
+    printf("Start : ");
+    scanf("%c",&start);
+    getchar();
+    printf("End : ");
+    scanf("%c",&end);
+
+    if(start<=end){
+        printf("character between %c and %c ",start,end);
+        for(ch=start;ch<=end;ch++){
+            printf("%c",ch);
+        }
+        printf("\n");
+    }else{
+        printf("kjb");
+    }
+    return 0;
+
+}*/
+
+/*#include <stdio.h>
+int displaySeries(int n, int term) {
+    if (n == 1) {
+        printf("%d", term);
+        return term;
+    } else {
+        printf("%d + ", term);
+        return term + displaySeries(n - 1, term * 10 + 1);
+    }
+}
+
+int main() {
+    int n;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    printf("Series: ");
+    int sum = displaySeries(n, 1);
+
+    printf("\nSum of the series is: %d\n", sum);
+
+    return 0;
+}*/
+
+/*A file named emp.txt stores employ name, id, salary. WAP to display the details order by their salary*/
+
+/*#include <stdio.h>
+struct employ
+{
+    char name[20];
+    int id;
+    int salary;
+};
+int main()
+{
+    int i, j;
+    int n = 2;
+    struct employ e[n], temp;
+    FILE *fp;
+    fp = fopen("emp.txt", "wb");
+    if (fp == NULL)
+    {
+        printf("Error occured!");
+        exit(1);
+    }
+    printf("Start insert record in the file\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("EMP %d\n", i + 1);
+        printf("Enter name : ");
+        scanf("%s", &e[i].name);
+        getchar();
+        printf("Enter ID : ");
+        scanf("%d", &e[i].id);
+        printf("Enter Salary : ");
+        scanf("%d", &e[i].salary);
+    }
+    fwrite(e, sizeof(struct employ), n, fp);
+    fclose(fp);
+    printf("\nRecord saved!");
+    printf("\n");
+
+    fp = fopen("emp.txt", "rb");
+    if (fp == NULL)
+    {
+        printf("Error occured during file opening!");
+        exit(1);
+    }
+    fread(e, sizeof(struct employ), n, fp);
+    fclose(fp);
+
+    printf("Record displayed ordered by salary\n");
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (e[j].salary < e[j + 1].salary)
+            {
+                temp = e[j];
+                e[j] = e[j + 1];
+                e[j + 1] = temp;
+            }
+        }
+    }
+    printf("\nRecords displayed in descending order of salary:\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("Name: %s, ID: %d, Salary: %d\n", e[i].name, e[i].id, e[i].salary);
+    }
+
+    return 0;
+}
+*/
+
+/*
+write in file using putc
+*/
+/*#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char ch;
+    FILE *fp;
+
+    printf("Enter a character: ");
+    scanf(" %c", &ch);
+
+    fp = fopen("read.txt", "wb");
+    if (fp == NULL) {
+        printf("File creation failed!\n");
+        exit(1);
+    }
+
+    fputc(ch, fp);
+    fclose(fp);
+    printf("Character '%c' written to file!\n", ch);
+
+    fp = fopen("read.txt", "rb");
+    if (fp == NULL) {
+        printf("File opening failed!\n");
+        exit(1);
+    }
+
+    ch = fgetc(fp);
+    fclose(fp);
+
+    printf("Character read from file: '%c'\n", ch);
+
+    return 0;
+}*/
+
+// WAP in c to copy the contents of one file to another.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char source[20], dest[20];
+    FILE *sf, *df;
+    char ch;
+
+    printf("Enter the source file name: ");
+    scanf("%s", source);
+
+    sf = fopen(source, "rb");
+    if (sf == NULL) {
+        sf = fopen(source, "wb");
+        if (sf == NULL) {
+            printf("Unable to create source file.\n");
+            exit(1);
+        }
+
+        printf("Enter some text to write to the source file: ");
+        getchar(); // To consume the newline character left by scanf
+        char text[100];
+        fgets(text, 100, stdin);
+        fprintf(sf, "%s", text);
+        printf("Sample content written to %s\n", source);
+        fclose(sf);
+
+        // Re-open source file for reading after writing to it
+        sf = fopen(source, "rb");
+        if (sf == NULL) {
+            printf("Unable to open source file for reading.\n");
+            exit(1);
+        }
+    }
+
+    printf("Enter destination file name: ");
+    scanf("%s", dest);
+
+    df = fopen(dest, "wb");
+    if (df == NULL) {
+        printf("Oops! Could not open destination file.\n");
+        fclose(sf);
+        exit(1);
+    }
+
+    // Copy content from source to destination
+    while ((ch = fgetc(sf)) != EOF) {
+        fputc(ch, df);
+    }
+
+    printf("File copied successfully.\n");
+
+    // Close both files after copying
+    fclose(sf);
+    fclose(df);
+
+    // Reopen source file and display content
+    sf = fopen(source, "rb");
+    if (sf == NULL) {
+        printf("Unable to open source file for reading.\n");
+        exit(1);
+    }
+    printf("\nContent of source file:\n");
+    while ((ch = fgetc(sf)) != EOF) {
+        putchar(ch);
+    }
+    fclose(sf);
+
+    // Reopen destination file and display content
+    df = fopen(dest, "rb");
+    if (df == NULL) {
+        printf("Unable to open destination file for reading.\n");
+        exit(1);
+    }
+    printf("\nContent of destination file:\n");
+    while ((ch = fgetc(df)) != EOF) {
+        putchar(ch);
+    }
+    fclose(df);
+
+    return 0;
 }
